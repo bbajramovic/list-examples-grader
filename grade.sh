@@ -30,8 +30,5 @@ java -cp '.;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar' org.junit.runner.JUn
 cd ..
 
 
-# Draw a picture/take notes on the directory structure that's set up after
-# getting to this point
-
 # Then, add here code to compile and run, and do any post-processing of the
 # tests
