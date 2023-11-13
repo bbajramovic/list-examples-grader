@@ -19,14 +19,14 @@ fi
 
 cp -R student-submission/. grading-area
 cp TestListExamples.java grading-area
-
-
-javac grading-area/ListExamples.java
-
 cp -R lib grading-area
+
 cd grading-area
-javac -cp '.;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar' TestListExamples.java
-java -cp '.;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar' org.junit.runner.JUnitCore TestListExamples
+javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
+java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples
+
+javac ListExamples.java
+
 cd ..
 
 
