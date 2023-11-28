@@ -8,7 +8,6 @@ mkdir grading-area
 git clone $1 student-submission
 echo 'Finished cloning'
 
-set -e
 if [[ -f student-submission/ListExamples.java ]]
 then 
     echo 'file found'
@@ -23,12 +22,14 @@ cp -R lib grading-area
 
 cd grading-area
 javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
-java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples
+java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples > results.txt
 
 javac ListExamples.java
 
+if [[ `grep "There was 1 failure:" results.txt` ]]
+then
+    echo "0/1"
+else
+    echo "1/1"
+fi
 cd ..
-
-
-# Then, add here code to compile and run, and do any post-processing of the
-# tests
